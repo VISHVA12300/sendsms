@@ -30,14 +30,145 @@ Step 7: Save and run the application.
 ```
 /*
 Program to create and design an android application Send SMS using Intent.
-Developed by:
-Registeration Number :
+Developed by: VISHVA V
+Registeration Number : 212222040182
 */
 ```
 
+## ACTIVITY_MAIN.XML
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/editTextPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:hint="Recipient's Phone Number"
+        android:inputType="phone"
+        android:textColor="@color/black"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/editTextMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPhoneNumber"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Message"
+        android:textColor="@color/black"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/buttonSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextMessage"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Send"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>
+
+```
+## ANDROID_MANIFEST.XML
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SMS"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+
+## MAIN_ACTIVITY.JAVA
+```JAVA
+package com.example.sms;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+    EditText phonenumber,message;
+    Button send;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        send=findViewById(R.id.buttonSend);
+        phonenumber=findViewById(R.id.editTextPhoneNumber);
+        message=findViewById(R.id.editTextMessage);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendSMS();
+            }
+        });
+
+        }
+
+    private void sendSMS() {
+        String msg=message.getText().toString();
+        String phoneNo=phonenumber.getText().toString();
+        Intent intent=new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("sms:"+phoneNo));
+        intent.putExtra("sms_body",msg);
+        startActivity(intent);
+    }
+}
+```
+
 ## OUTPUT
-
-
+![WhatsApp Image 2024-04-17 at 11 07 31_2069cd2c](https://github.com/VISHVA12300/sendsms/assets/119404426/1de45b49-c2b3-435a-b9f3-d33beb4015fc)
+![WhatsApp Image 2024-04-17 at 11 07 32_18984e97](https://github.com/VISHVA12300/sendsms/assets/119404426/cd335b21-3f74-4dce-b557-f2d092ebf8ac)
+![WhatsApp Image 2024-04-17 at 11 07 32_c66dfda4](https://github.com/VISHVA12300/sendsms/assets/119404426/b4e63839-bbff-4d81-84f5-50222c5f351a)
 
 ## RESULT
 Thus a Simple Android Application create and design an android application Send SMS using Intent using Android Studio is developed and executed successfully.
