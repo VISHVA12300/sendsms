@@ -166,9 +166,14 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 ## OUTPUT
-![WhatsApp Image 2024-04-17 at 11 07 31_2069cd2c](https://github.com/VISHVA12300/sendsms/assets/119404426/1de45b49-c2b3-435a-b9f3-d33beb4015fc)
-![WhatsApp Image 2024-04-17 at 11 07 32_18984e97](https://github.com/VISHVA12300/sendsms/assets/119404426/cd335b21-3f74-4dce-b557-f2d092ebf8ac)
-![WhatsApp Image 2024-04-17 at 11 07 32_c66dfda4](https://github.com/VISHVA12300/sendsms/assets/119404426/b4e63839-bbff-4d81-84f5-50222c5f351a)
+![Screenshot 2024-05-08 101938](https://github.com/VISHVA12300/sendsms/assets/119404426/ee2d653e-5d42-48e6-9d62-9b4c22ccb44f)
+
+
+![Screenshot 2024-05-08 101948](https://github.com/VISHVA12300/sendsms/assets/119404426/b27858f8-ba8d-401f-8307-6e58f9ff7a2f)
+
+![Screenshot 2024-05-08 102000](https://github.com/VISHVA12300/sendsms/assets/119404426/474cec05-4f12-44dd-a91d-4247c91bb9f9)
+
+
 
 ## RESULT
 Thus a Simple Android Application create and design an android application Send SMS using Intent using Android Studio is developed and executed successfully.
